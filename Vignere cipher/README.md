@@ -51,8 +51,8 @@ Encrypted: RIJVS
   ```bash
   ciphertext_char = (plaintext_char + key_char) % 26
   ```
-  3. ## Output:
-     - The encrypted ciphertext is displayed.
+3. ## Output:
+- The encrypted ciphertext is displayed.
 
   ## Why Use the Vigenère Cipher?
   - **Polyalphabetic Substitution:**  The Vigenère Cipher uses multiple Caesar Ciphers based on the keyword, making it more secure than a simple substitution cipher.
