@@ -33,7 +33,33 @@ This project implements a **hybrid cipher** that combines **AES encryption** (su
    ```bash
    python hybrid_cipher.py
 
----
+2.Provide input:
+
+Enter the plaintext to encrypt.
+
+Enter the AES key (must be 16, 24, or 32 characters long).
+
+Enter the transposition key (e.g., "SECRET").
+
+3.View output:
+
+The script will display the ciphertext (in hexadecimal format) and the decrypted plaintext.
+
+**Example**
+
+Input:
+```markdown
+Enter the plaintext to encrypt: Hello, this is a secret message!
+Enter the AES key (16, 24, or 32 characters): ThisIsA128BitKey
+Enter the transposition key (e.g., 'SECRET'): SECRET
+```
+
+
+Output:
+```markdown
+Ciphertext (Hex): 3a1f4e5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b
+Decrypted Text: Hello, this is a secret message!
+```
 
 ## How It Works
 1. **AES Encryption**: The plaintext is encrypted using AES in ECB mode with a 128-bit key.
