@@ -63,6 +63,14 @@ Decoded code: Hello, World!
 - The shift value (`k=3`) can be modified to use a different key.
 - The program only shifts alphabetic characters, leaving spaces and symbols unchanged.
 
+## Contact
+For questions or feedback, please contact:
+
+- **Author:** Samruddi N.G
+- **Email:** samruddi3504@gmail.com
+- **GitHub:** [03NgSam](https://github.com/03NgSam)
+- 
+
 ## License
 This project is open-source and available for use and modification.
 
