@@ -21,7 +21,7 @@ This repository contains implementations of fundamental cryptographic algorithms
 ---
 
 ## 📂 Directory Structure
-- 📂 `Caesar Cipher/` - Implementation of the Caesar Cipher.
+- 📂 `Caesar Cipher` - Implementation of the Caesar Cipher.
 - 📂 `MonoalphabeticCipher/` - Implementation of the Monoalphabetic Cipher.
 - 📂 `HillCipher/` - Implementation of the Hill Cipher.
 - 📂 `PlayfairCipher/` - Implementation of the Playfair Cipher.
