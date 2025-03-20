@@ -1,7 +1,11 @@
 # Information-Network-Security
 
+# 🔑 Cryptographic Implementations
+
 ## 📌 Overview
-This repository contains Python and C implementations of various classical encryption algorithms, commonly studied in Information and Network Security courses. These ciphers are fundamental in understanding the principles of cryptography and data security.
+This repository contains implementations of fundamental cryptographic algorithms, including classical ciphers and modern key exchange methods. These algorithms are essential for understanding cryptographic principles and secure communication.
+
+---
 
 ## ✨ Features
 - 🔐 **Caesar Cipher**: A simple substitution cipher that shifts each letter in the plaintext by a fixed number of places.
@@ -11,16 +15,25 @@ This repository contains Python and C implementations of various classical encry
 - 🔐 **Vigenère Cipher**: A polyalphabetic substitution cipher that shifts letters based on a repeating key.
 - 🔐 **DES (Data Encryption Standard)**: A symmetric-key encryption algorithm widely used for securing digital data.
 - 🔐 **Feistel Cipher**: A symmetric structure used in the construction of block ciphers.
+- 🔐 **RSA Encryption**: A public-key cryptosystem based on modular exponentiation and prime factorization.
+- 🔐 **Diffie-Hellman Key Exchange**: A cryptographic protocol that allows two parties to establish a shared secret over an insecure channel.
+
+---
 
 ## 📂 Directory Structure
 - 📂 `Caesar Cipher/` - Implementation of the Caesar Cipher.
 - 📂 `MonoalphabeticCipher/` - Implementation of the Monoalphabetic Cipher.
 - 📂 `HillCipher/` - Implementation of the Hill Cipher.
 - 📂 `PlayfairCipher/` - Implementation of the Playfair Cipher.
-- 📂 `Vignere cipher/` - Implementation of the Vigenère Cipher.
+- 📂 `Vigenere Cipher/` - Implementation of the Vigenère Cipher.
 - 📂 `DES/` - Implementation of the Data Encryption Standard.
-- 📂 `Fiestal cipher/` - Implementation of the Feistel Cipher.
+- 📂 `Feistel Cipher/` - Implementation of the Feistel Cipher.
+- 📂 `RSA/` - Implementation of the RSA encryption algorithm.
+- 📂 `Diffie-Hellman/` - Implementation of the Diffie-Hellman key exchange.
 - 📂 `TASK1/` - Additional cryptographic implementations and exercises.
+
+---
+
 
 ## 🚀 Getting Started
 To run any of these encryption programs, follow these steps:
