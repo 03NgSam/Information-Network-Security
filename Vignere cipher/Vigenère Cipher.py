@@ -32,3 +32,4 @@ key = "KEY"
 print("Plaintext", plaintext)
 print("key", key)
 print("Encrypted:", vigenere_encrypt(plaintext, key))
+print("Decrypted:", vigenere_decrypt(vigenere_encrypt(plaintext, key), key))
