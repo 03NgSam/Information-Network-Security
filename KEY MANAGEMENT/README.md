@@ -1,134 +1,131 @@
-# Key Management System
+# Key Management System (KMS)
 
-## Objective
-The purpose of this project is to design and implement a key management system that supports both symmetric and asymmetric encryption. The system will include centralized key distribution for symmetric encryption and a Public Key Infrastructure (PKI) for asymmetric encryption. Key generation, secure storage, and exchange mechanisms will be demonstrated, along with key revocation in case of compromise.
+## 📌 Overview
+This Key Management System (KMS) provides secure key generation, storage, exchange, and revocation for symmetric and asymmetric encryption methods. It supports:
 
-## System Architecture
-The system is divided into the following main components:
+- **Symmetric Key Management (AES-256)**
+- **Asymmetric Key Management (RSA/ECC)**
+- **Diffie-Hellman Key Exchange**
+- **Key Revocation System**
+- **Secure API using Flask with TLS**
 
-1. **Centralized Key Distribution System**: Handles symmetric key distribution securely.
-2. **Public Key Infrastructure (PKI)**: Manages asymmetric encryption keys, including issuance, verification, and revocation.
-3. **Secure Key Exchange**: Implements Diffie-Hellman for exchanging symmetric keys securely.
-4. **Key Revocation System**: Provides mechanisms to revoke compromised keys.
+## 🚀 Features
+- **Generate and store symmetric AES keys securely**
+- **Generate and manage RSA key pairs**
+- **Perform secure key exchange using Diffie-Hellman**
+- **Revoke compromised keys**
+- **Protect communications with TLS security**
 
-### Design Diagram
+## 📁 Project Structure
 ```
-+--------------------------+
-| Centralized Key Server   |
-| - Key Generation        |
-| - Secure Storage        |
-| - Key Distribution      |
-+--------------------------+
-         |  (Symmetric Keys)
-         v
-+-------------------------+
-| Client A               |
-| - Requests Key         |
-| - Encrypts Data        |
-+-------------------------+
-
-+--------------------------+
-| Public Key Infrastructure |
-| - Certificate Authority   |
-| - Key Revocation List     |
-+--------------------------+
-         |  (Asymmetric Keys)
-         v
-+-------------------------+
-| Client B               |
-| - Requests Certificate |
-| - Verifies Keys        |
-+-------------------------+
+/Key-Management-System
+│── app.py                 # Main Flask application
+│── requirements.txt       # Dependencies
+│── server.crt             # SSL certificate (provide your own)
+│── server.key             # SSL private key (provide your own)
+│── README.md              # Project documentation
 ```
 
-## Implementation
-
-### Secure Key Generation and Storage
-#### Symmetric Key Generation
-```python
-from cryptography.fernet import Fernet
-
-def generate_symmetric_key():
-    key = Fernet.generate_key()
-    with open("symmetric.key", "wb") as key_file:
-        key_file.write(key)
-    return key
+## 🛠️ Installation & Setup
+### 1️⃣ Install Dependencies
+```sh
+pip install -r requirements.txt
 ```
 
-#### Asymmetric Key Generation
-```python
-from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import serialization
-
-def generate_asymmetric_keys():
-    private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=2048
-    )
-    public_key = private_key.public_key()
-
-    with open("private_key.pem", "wb") as priv_file:
-        priv_file.write(
-            private_key.private_bytes(
-                encoding=serialization.Encoding.PEM,
-                format=serialization.PrivateFormat.PKCS8,
-                encryption_algorithm=serialization.NoEncryption()
-            )
-        )
-
-    with open("public_key.pem", "wb") as pub_file:
-        pub_file.write(
-            public_key.public_bytes(
-                encoding=serialization.Encoding.PEM,
-                format=serialization.PublicFormat.SubjectPublicKeyInfo
-            )
-        )
+### 2️⃣ Generate SSL Certificates (Required for TLS Security)
+```sh
+openssl req -x509 -newkey rsa:2048 -keyout server.key -out server.crt -days 365 -nodes
 ```
 
-### Secure Key Exchange using Diffie-Hellman
-```python
-from cryptography.hazmat.primitives.asymmetric import dh
-
-def diffie_hellman_key_exchange():
-    parameters = dh.generate_parameters(generator=2, key_size=2048)
-    private_key_A = parameters.generate_private_key()
-    private_key_B = parameters.generate_private_key()
-
-    public_key_A = private_key_A.public_key()
-    public_key_B = private_key_B.public_key()
-
-    shared_key_A = private_key_A.exchange(public_key_B)
-    shared_key_B = private_key_B.exchange(public_key_A)
-
-    assert shared_key_A == shared_key_B
-    return shared_key_A
+### 3️⃣ Run the Application
+```sh
+python app.py
 ```
 
-### Key Revocation
-```python
-import json
-
-def revoke_key(key_id):
-    with open("revoked_keys.json", "r+") as file:
-        revoked_keys = json.load(file)
-        revoked_keys.append(key_id)
-        file.seek(0)
-        json.dump(revoked_keys, file)
+## 🔑 API Endpoints
+### 📌 Generate a Symmetric Key (AES)
+```http
+POST /generate_symmetric_key
+```
+**Request Body:**
+```json
+{
+    "client_id": "user1"
+}
+```
+**Response:**
+```json
+{
+    "client_id": "user1",
+    "symmetric_key": "Jqk9K1JZ6E..."
+}
 ```
 
-## Security Measures
-### Mitigation of Attacks
-1. **Man-in-the-Middle Attacks**:
-   - Use certificates issued by a trusted Certificate Authority (CA) for key verification.
-   - Implement mutual authentication to verify both parties.
+### 📌 Generate RSA Key Pair
+```http
+POST /generate_rsa_key
+```
+**Request Body:**
+```json
+{
+    "client_id": "user1"
+}
+```
+**Response:**
+```json
+{
+    "client_id": "user1",
+    "public_key": "-----BEGIN PUBLIC KEY-----..."
+}
+```
 
-2. **Key Compromise**:
-   - Implement key revocation mechanisms with a revocation list.
-   - Use forward secrecy to prevent past communications from being decrypted if a key is compromised.
+### 📌 Generate Diffie-Hellman Key Pair
+```http
+POST /generate_dh_key
+```
 
-3. **Replay Attacks**:
-   - Implement nonce-based authentication to prevent reuse of exchanged keys.
-   
-## Conclusion
-This key management system ensures secure generation, storage, exchange, and revocation of both symmetric and asymmetric keys. It mitigates security risks such as man-in-the-middle attacks and key compromise through a robust PKI and revocation mechanisms. The implemented solution is a foundational system for secure communications and encryption management.
+### 📌 Revoke a Key
+```http
+POST /revoke_key
+```
+**Request Body:**
+```json
+{
+    "key_id": "user1_rsa"
+}
+```
+**Response:**
+```json
+{
+    "message": "Key user1_rsa revoked."
+}
+```
+
+## 🔒 Security Measures
+- **Prevention of MITM Attacks:** Uses PKI and TLS encryption.
+- **Forward Secrecy:** Uses ephemeral Diffie-Hellman keys.
+- **Access Control:** Key expiration, authentication, and revocation checks.
+
+## 🛡️ Mitigation of Attacks
+### 🔹 Man-in-the-Middle (MITM) Attack Prevention
+- **TLS Encryption:** Ensures secure communication between clients and the server.
+- **Public Key Infrastructure (PKI):** Ensures authenticity and integrity of public keys.
+- **Certificate-Based Authentication:** Clients must verify server certificates to avoid MITM attacks.
+
+### 🔹 Key Compromise Mitigation
+- **Key Rotation:** Periodic regeneration and replacement of cryptographic keys.
+- **Key Revocation System:** Maintains a revocation list to disable compromised keys.
+- **Secure Key Storage:** Uses encrypted vaults for storing private keys.
+
+### 🔹 Brute Force & Cryptanalysis Resistance
+- **Strong Key Sizes:** Uses AES-256, RSA-2048, and DH-2048 for enhanced security.
+- **Rate Limiting:** Prevents repeated key access attempts.
+- **Multi-Factor Authentication (MFA):** Ensures authorized key access.
+
+## 📜 License
+This project is open-source and available under the **MIT License**.
+
+---
+Made with ❤️ for Secure Communication 🚀
+
 
