@@ -109,6 +109,19 @@ Snort will display:
 6. **Verification**: The alert validated the IDS was working as expected.
 
 ---
+## 📸 Screenshots of IDS working
+
+- VirtualBox VM setup - (screenshots/Picture1.jpg)
+  
+- Ubuntu installation steps  
+- Terminal after Snort installation  
+- `snort -V` command output  
+- Contents of `local.rules`  
+- Snort running in console  
+- Terminal showing alert from ICMP rule  
+- `ping` command terminal used for test
+
+---
 
 
 ## ✅ Conclusion
@@ -160,4 +173,4 @@ Snort is an open-source project maintained by Cisco Talos.
 - VirtualBox  
 - Network Security Educators and Open Source Contributors
 
-
+  
