@@ -111,11 +111,8 @@ Snort will display:
 ---
 ## 📸 Screenshots of IDS working
 
-- VirtualBox VM setup - ([screenshots/Picture1.jpg](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture1.png))
-  
-- Ubuntu installation steps  
-- Terminal after Snort installation  
-- `snort -V` command output  
+- VirtualBox VM setup - ((https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture1.png))
+- `snort -V` command output - (screenshots/Picture2.png)
 - Contents of `local.rules`  
 - Snort running in console  
 - Terminal showing alert from ICMP rule  
