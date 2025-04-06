@@ -134,8 +134,7 @@ IDS-Snort-Project/
 │   ├── snort-install.png
 │   ├── rule-config.png
 │   └── alert-output.png
-└── /video
-    └── IDS-demo.mp4 (or external link)
+
 ```
 
 
