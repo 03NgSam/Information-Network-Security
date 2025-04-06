@@ -111,12 +111,14 @@ Snort will display:
 ---
 ## 📸 Screenshots of IDS working
 
-- VirtualBox VM setup - ((https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture1.png))
-- `snort -V` command output - (screenshots/Picture2.png)
-- Contents of `local.rules`  
-- Snort running in console  
-- Terminal showing alert from ICMP rule  
-- `ping` command terminal used for test
+- VirtualBox VM setup - ([setup ](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture1.png))
+- `snort -V` command output - ([output](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture2.png))
+- `local.rules` command to edit it - ([command](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture3.png))
+- Contents of `local.rules` - ([contents](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture4.png))  
+- Snort running in console - ([snort command](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture5.png))
+                             ([running](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture6.png))
+- `ping` command terminal used for test- ([command](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture7.png))
+- detected - ([detected message](https://github.com/03NgSam/Information-Network-Security/blob/main/IDS-%20Snort%20Project/screenshots/Picture8.png))
 
 ---
 
