@@ -119,9 +119,7 @@ This project illustrates how an Intrusion Detection System like Snort can be use
 
 ## 🎥 Demo Video
 
-🎥 [Watch Demo Video Here](https://your-demo-link-here.com)
-
-*(Upload your demo to YouTube or Google Drive and paste the public link above.)*
+🎥 [Watch Demo Video Here](https://drive.google.com/file/d/1FS9Og6Px6-K-bcK2XvlDGvXlJ5ZhXIBj/view?usp=sharing)
 
 ---
 
